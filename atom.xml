@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-22T03:13:25.125Z</updated>
+  <updated>2017-04-22T03:34:09.642Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,15 +16,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/04/22/bcloud/"/>
-    <id>http://yoursite.com/2017/04/22/bcloud/</id>
-    <published>2017-04-22T03:13:25.137Z</published>
-    <updated>2017-04-22T03:13:25.125Z</updated>
+    <title>ubuntu初始化&amp;&amp;美化</title>
+    <link href="http://yoursite.com/2017/04/22/ubuntu/"/>
+    <id>http://yoursite.com/2017/04/22/ubuntu/</id>
+    <published>2017-04-22T03:34:09.650Z</published>
+    <updated>2017-04-22T03:34:09.642Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="ubuntu-下安装bcloud"><a href="#ubuntu-下安装bcloud" class="headerlink" title="ubuntu 下安装bcloud"></a>ubuntu 下安装bcloud</h2><p>直接去github下载deb包就可以了。然后安装<br>如果报错，获取bdstoken失败，参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=43445</div></pre></td></tr></table></figure></p>
-<p>Step 1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo gedit /usr/lib/python3/dist-packages/bcloud/auth.py</div><div class="line">在get_bdstoken函数的if req:前一行添加&quot;cookie.load_list(req.headers.get_all(&apos;Set-Cookie&apos;))&quot;</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<p>[TOC]</p>
+<h1 id="Ubuntu初始化以及美化"><a href="#Ubuntu初始化以及美化" class="headerlink" title="Ubuntu初始化以及美化"></a>Ubuntu初始化以及美化</h1><h2 id="系统版本"><a href="#系统版本" class="headerlink" title="系统版本"></a>系统版本</h2><ul>
+<li>Ubuntu 16.10<br>可以安装screenfetch来查看系统信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install screenfetch</div><div class="line">screenfetch</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vim</div></pre></td></tr></table></figure>
+<h2 id="Chorme浏览器"><a href="#Chorme浏览器" class="headerlink" title="Chorme浏览器"></a>Chorme浏览器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取deb安装包</span></div><div class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</div><div class="line"><span class="comment"># 安装</span></div><div class="line">sudo dpkg -i google-chrome-stable_current_amd64.deb</div></pre></td></tr></table></figure>
+<h2 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h2><p>直接去官网下载deb包，安装就好了</p>
+<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mysql-server</div></pre></td></tr></table></figure>
+<h2 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h2><p>去laod博客下载hosts文件，然后敲<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 重启网络管理器</div><div class="line">sudo systemctl restart NetworkManager</div></pre></td></tr></table></figure></p>
+<p>或者关闭网络连接再打开。<br>google访问要加<code>https</code></p>
+<h2 id="bcloud"><a href="#bcloud" class="headerlink" title="bcloud"></a>bcloud</h2><p>直接去github下载deb包就可以了。然后安装</p>
+<p>如果报错，获取bdstoken失败，参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=43445</div></pre></td></tr></table></figure></p>
 <ul>
+<li><p>Step 1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo gedit /usr/lib/python3/dist-packages/bcloud/auth.py</div><div class="line">在get_bdstoken函数的if req:前一行添加&quot;cookie.load_list(req.headers.get_all(&apos;Set-Cookie&apos;))&quot;</div></pre></td></tr></table></figure>
+</li>
 <li><p>Step 2:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo gedit /usr/lib/python3/dist-packages/bcloud/pcs.py</div><div class="line">把所有cookie.sub_output()的参数添加上&apos;SCRC&apos;,&apos;STOKEN&apos;</div><div class="line">例：&apos;Cookie&apos;: cookie.sub_output(&apos;BAIDUID&apos;, &apos;BDUSS&apos;, &apos;PANWEB&apos;, &apos;cflag&apos;, &apos;SCRC&apos;, &apos;STOKEN&apos;),</div><div class="line">只需要修改4个参数的函数</div></pre></td></tr></table></figure>
 </li>
@@ -34,25 +49,15 @@
 <li><p>Step 4<br>重新运行Bcloud</p>
 </li>
 </ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;ubuntu-下安装bcloud&quot;&gt;&lt;a href=&quot;#ubuntu-下安装bcloud&quot; class=&quot;headerlink&quot; title=&quot;ubuntu 下安装bcloud&quot;&gt;&lt;/a&gt;ubuntu 下安装bcloud&lt;/h2&gt;&lt;p&gt;直接去github下载deb
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/04/22/wps/"/>
-    <id>http://yoursite.com/2017/04/22/wps/</id>
-    <published>2017-04-22T03:11:17.317Z</published>
-    <updated>2017-04-22T03:11:05.833Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="wps"><a href="#wps" class="headerlink" title="wps"></a>wps</h2><p>启动WPS for Linux后，出现提示”系统缺失字体” 。</p>
+<h2 id="wps"><a href="#wps" class="headerlink" title="wps"></a>wps</h2><ul>
+<li>首先卸载libreoffice<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get -y purge libreoffice*</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>zsh貌似不兼容，需要切换到bash<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/bin/sh</div><div class="line">sudo apt-get -y purge libreoffice*</div></pre></td></tr></table></figure></p>
+<ul>
+<li>安装wps<br>去官网下载wpf for linux，直接安装就好了</li>
+</ul>
+<p>启动WPS for Linux后，出现提示”系统缺失字体” 。</p>
 <p>出现提示的原因是因为WPS for Linux没有自带windows的字体，只要在Linux系统中加载字体即可。</p>
 <p>具体操作步骤如下：</p>
 <ol>
@@ -71,89 +76,12 @@
 <li><p>重启wps即可，字体缺失的提示不再出现。<br>（生成的文件可以删除，貌似。。）</p>
 </li>
 </ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;wps&quot;&gt;&lt;a href=&quot;#wps&quot; class=&quot;headerlink&quot; title=&quot;wps&quot;&gt;&lt;/a&gt;wps&lt;/h2&gt;&lt;p&gt;启动WPS for Linux后，出现提示”系统缺失字体” 。&lt;/p&gt;
-&lt;p&gt;出现提示的原因是因为WPS for Linux没有自带
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/04/22/qq/"/>
-    <id>http://yoursite.com/2017/04/22/qq/</id>
-    <published>2017-04-22T00:36:13.730Z</published>
-    <updated>2017-04-22T00:35:36.639Z</updated>
-    
-    <content type="html"><![CDATA[<p>ubuntu16.04 LTS环境下安装QQintl</p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>下载地址: <a href="http://linux.linuxidc.com/" target="_blank" rel="external">http://linux.linuxidc.com/</a></p>
+<h2 id="QQ-intl"><a href="#QQ-intl" class="headerlink" title="QQ intl"></a>QQ intl</h2><h4 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h4><p>下载地址: <a href="http://linux.linuxidc.com/" target="_blank" rel="external">http://linux.linuxidc.com/</a></p>
 <p>用户名与密码: www.linuxidc.com</p>
 <p>具体下载目录在 /2016年资料/9月/6日/Ubuntu 16.04安装QQ国际版图文详细教程/</p>
-<h2 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libgtk2.0-0:i386</div><div class="line">sudo apt-get install lib32ncurses5</div></pre></td></tr></table></figure>
-<h2 id="解压并安装wineqqintl"><a href="#解压并安装wineqqintl" class="headerlink" title="解压并安装wineqqintl"></a>解压并安装wineqqintl</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tar -vxf wine-qqintl-www.linuxidc.com.tar.xz</div><div class="line">sudo dpkg -i wine-qqintl_0.1.3-2_i386.deb</div><div class="line">sudo dpkg -i ttf-wqy-microhei_0.2.0-beta-2_all.deb</div><div class="line">sudo dpkg -i fonts-wqy-microhei_0.2.0-beta-2_all.deb</div></pre></td></tr></table></figure>
-<h2 id="关闭手机上的设备锁，否则会提示版本过低"><a href="#关闭手机上的设备锁，否则会提示版本过低" class="headerlink" title="关闭手机上的设备锁，否则会提示版本过低"></a>关闭手机上的设备锁，否则会提示版本过低</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ubuntu16.04 LTS环境下安装QQintl&lt;/p&gt;
-&lt;h2 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;下载地址&lt;/h2&gt;&lt;p&gt;下载地址: &lt;a href=&quot;http://linux.
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/04/21/hexo/"/>
-    <id>http://yoursite.com/2017/04/21/hexo/</id>
-    <published>2017-04-21T14:58:12.699Z</published>
-    <updated>2017-04-21T14:58:12.683Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="基本环境安装"><a href="#基本环境安装" class="headerlink" title="基本环境安装"></a>基本环境安装</h1><h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div><div class="line">git config --global user.name &quot;omsfuk&quot;</div><div class="line">git config --golbal user.email &quot;omsfuk@163.com&quot;</div><div class="line">生成密钥</div><div class="line">ssh-keygen -t rsa -C &quot;omsfuk@163.com&quot;</div><div class="line">将id_rsa.pub文件里的内容设置到github中</div></pre></td></tr></table></figure>
-<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget  http://nodejs.org/dist/v4.5.0/node-v4.5.0-linux-x64.tar.xz</div><div class="line">tar -vxf node-v4.5.0-linux-x64.tar.xz</div></pre></td></tr></table></figure>
-<p>然后将文件复制过去<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo cp -r bin/* /usr/local/bin/</div><div class="line">sudo cp -r lib/* /usr/local/lib/</div><div class="line">sudo cp -r include/* /usr/local/include/</div></pre></td></tr></table></figure></p>
-<p>查看node版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
-<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install npm</div></pre></td></tr></table></figure>
-<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install hexo-cli -g</div></pre></td></tr></table></figure>
-<h1 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo init 初始化。</div><div class="line">hexo new [layout] &lt;title&gt; 创建新文章。生成的文件会在source/_post/目录下，直接编辑就好</div><div class="line">hexo clean 清理缓存，当经常更换主题或发表文章时使用</div><div class="line">hexo g 生成静态网页</div><div class="line">hexo d 部署</div><div class="line">hexo s 启动服务器</div></pre></td></tr></table></figure>
-<h1 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h1><p>直接下载主题，然后放在themes目录下，在<code>_config.yml</code>中更改主题名</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;基本环境安装&quot;&gt;&lt;a href=&quot;#基本环境安装&quot; class=&quot;headerlink&quot; title=&quot;基本环境安装&quot;&gt;&lt;/a&gt;基本环境安装&lt;/h1&gt;&lt;h2 id=&quot;git&quot;&gt;&lt;a href=&quot;#git&quot; class=&quot;headerlink&quot; title=&quot;git
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu初始化&amp;&amp;美化</title>
-    <link href="http://yoursite.com/2017/04/21/ubuntu/"/>
-    <id>http://yoursite.com/2017/04/21/ubuntu/</id>
-    <published>2017-04-21T14:41:30.870Z</published>
-    <updated>2017-04-16T14:02:20.768Z</updated>
-    
-    <content type="html"><![CDATA[<p>[TOC]</p>
-<h1 id="Ubuntu初始化以及美化"><a href="#Ubuntu初始化以及美化" class="headerlink" title="Ubuntu初始化以及美化"></a>Ubuntu初始化以及美化</h1><h2 id="系统版本"><a href="#系统版本" class="headerlink" title="系统版本"></a>系统版本</h2><ul>
-<li>Ubuntu 16.10<br>可以安装screenfetch来查看系统信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install screenfetch</div><div class="line">screenfetch</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
-<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vim</div></pre></td></tr></table></figure>
-<h2 id="Chorme浏览器"><a href="#Chorme浏览器" class="headerlink" title="Chorme浏览器"></a>Chorme浏览器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取deb安装包</span></div><div class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</div><div class="line"><span class="comment"># 安装</span></div><div class="line">sudo dpkg -i google-chrome-stable_current_amd64.deb</div></pre></td></tr></table></figure>
-<h2 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h2><p>直接去官网下载deb包，安装就好了</p>
-<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mysql-server</div></pre></td></tr></table></figure>
-<h2 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h2><p>去laod博客下载hosts文件，然后敲<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 重启网络管理器</div><div class="line">sudo systemctl restart NetworkManager</div></pre></td></tr></table></figure></p>
-<p>或者关闭网络连接再打开。<br>google访问要加<code>https</code></p>
-<h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 安装zsh</div><div class="line">sudo apt-get install zsh</div><div class="line"># 设为默认登录shell，可以查看/etc/passwd验证是否更改</div><div class="line">chsh -s /bin/zsh</div></pre></td></tr></table></figure>
+<h4 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libgtk2.0-0:i386</div><div class="line">sudo apt-get install lib32ncurses5</div></pre></td></tr></table></figure>
+<h4 id="解压并安装wineqqintl"><a href="#解压并安装wineqqintl" class="headerlink" title="解压并安装wineqqintl"></a>解压并安装wineqqintl</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tar -vxf wine-qqintl-www.linuxidc.com.tar.xz</div><div class="line">sudo dpkg -i wine-qqintl_0.1.3-2_i386.deb</div><div class="line">sudo dpkg -i ttf-wqy-microhei_0.2.0-beta-2_all.deb</div><div class="line">sudo dpkg -i fonts-wqy-microhei_0.2.0-beta-2_all.deb</div></pre></td></tr></table></figure>
+<h4 id="关闭手机上的设备锁，否则会提示版本过低"><a href="#关闭手机上的设备锁，否则会提示版本过低" class="headerlink" title="关闭手机上的设备锁，否则会提示版本过低"></a>关闭手机上的设备锁，否则会提示版本过低</h4><h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 安装zsh</div><div class="line">sudo apt-get install zsh</div><div class="line"># 设为默认登录shell，可以查看/etc/passwd验证是否更改</div><div class="line">chsh -s /bin/zsh</div></pre></td></tr></table></figure>
 <h2 id="Oh-My-ZSH"><a href="#Oh-My-ZSH" class="headerlink" title="Oh My ZSH!"></a>Oh My ZSH!</h2><p>Oh My Zsh是一款社区驱动的命令行工具，正如它的主页上说的，Oh My Zsh 是一种生活方式。它基于zsh命令行，提供了主题配置，插件机制，已经内置的便捷操作。给我们一种全新的方式使用命令行。</p>
 <p>Oh My Zsh这个名字听起来就很有意思，它是基于zsh命令行的一个扩展工具集，提供了丰富的扩展功能。</p>
 <p>Oh My Zsh只是一个对zsh命令行环境的配置包装框架，但它不提供命令行窗口，更不是一个独立的APP。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</div></pre></td></tr></table></figure></p>
@@ -180,25 +108,28 @@
   </entry>
   
   <entry>
-    <title>think in java 学习笔记</title>
-    <link href="http://yoursite.com/2017/04/21/thinkinjava/"/>
-    <id>http://yoursite.com/2017/04/21/thinkinjava/</id>
-    <published>2017-04-21T14:41:30.866Z</published>
-    <updated>2017-04-16T14:04:32.579Z</updated>
+    <title></title>
+    <link href="http://yoursite.com/2017/04/21/hexo/"/>
+    <id>http://yoursite.com/2017/04/21/hexo/</id>
+    <published>2017-04-21T14:58:12.699Z</published>
+    <updated>2017-04-21T14:58:12.683Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="char与int的转换"><a href="#char与int的转换" class="headerlink" title="char与int的转换"></a>char与int的转换</h1><p>char a = ‘a’ + 1; yes</p>
-<p>char b = ‘a’;<br>char a = b + 1; no</p>
+    <content type="html"><![CDATA[<h1 id="基本环境安装"><a href="#基本环境安装" class="headerlink" title="基本环境安装"></a>基本环境安装</h1><h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div><div class="line">git config --global user.name &quot;omsfuk&quot;</div><div class="line">git config --golbal user.email &quot;omsfuk@163.com&quot;</div><div class="line">生成密钥</div><div class="line">ssh-keygen -t rsa -C &quot;omsfuk@163.com&quot;</div><div class="line">将id_rsa.pub文件里的内容设置到github中</div></pre></td></tr></table></figure>
+<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget  http://nodejs.org/dist/v4.5.0/node-v4.5.0-linux-x64.tar.xz</div><div class="line">tar -vxf node-v4.5.0-linux-x64.tar.xz</div></pre></td></tr></table></figure>
+<p>然后将文件复制过去<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo cp -r bin/* /usr/local/bin/</div><div class="line">sudo cp -r lib/* /usr/local/lib/</div><div class="line">sudo cp -r include/* /usr/local/include/</div></pre></td></tr></table></figure></p>
+<p>查看node版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install npm</div></pre></td></tr></table></figure>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<h1 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo init 初始化。</div><div class="line">hexo new [layout] &lt;title&gt; 创建新文章。生成的文件会在source/_post/目录下，直接编辑就好</div><div class="line">hexo clean 清理缓存，当经常更换主题或发表文章时使用</div><div class="line">hexo g 生成静态网页</div><div class="line">hexo d 部署</div><div class="line">hexo s 启动服务器</div></pre></td></tr></table></figure>
+<h1 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h1><p>直接下载主题，然后放在themes目录下，在<code>_config.yml</code>中更改主题名</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;char与int的转换&quot;&gt;&lt;a href=&quot;#char与int的转换&quot; class=&quot;headerlink&quot; title=&quot;char与int的转换&quot;&gt;&lt;/a&gt;char与int的转换&lt;/h1&gt;&lt;p&gt;char a = ‘a’ + 1; yes&lt;/p&gt;
-&lt;p&gt;char 
+      &lt;h1 id=&quot;基本环境安装&quot;&gt;&lt;a href=&quot;#基本环境安装&quot; class=&quot;headerlink&quot; title=&quot;基本环境安装&quot;&gt;&lt;/a&gt;基本环境安装&lt;/h1&gt;&lt;h2 id=&quot;git&quot;&gt;&lt;a href=&quot;#git&quot; class=&quot;headerlink&quot; title=&quot;git
     
     </summary>
     
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
   </entry>
   
@@ -345,6 +276,29 @@
     
     
       <category term="mybatis" scheme="http://yoursite.com/tags/mybatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>think in java 学习笔记</title>
+    <link href="http://yoursite.com/2017/04/21/thinkinjava/"/>
+    <id>http://yoursite.com/2017/04/21/thinkinjava/</id>
+    <published>2017-04-21T14:41:30.866Z</published>
+    <updated>2017-04-16T14:04:32.579Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="char与int的转换"><a href="#char与int的转换" class="headerlink" title="char与int的转换"></a>char与int的转换</h1><p>char a = ‘a’ + 1; yes</p>
+<p>char b = ‘a’;<br>char a = b + 1; no</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;char与int的转换&quot;&gt;&lt;a href=&quot;#char与int的转换&quot; class=&quot;headerlink&quot; title=&quot;char与int的转换&quot;&gt;&lt;/a&gt;char与int的转换&lt;/h1&gt;&lt;p&gt;char a = ‘a’ + 1; yes&lt;/p&gt;
+&lt;p&gt;char 
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
   </entry>
   

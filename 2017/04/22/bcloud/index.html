@@ -5,17 +5,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ubuntu16.04 LTS环境下安装QQintl 下载地址下载地址: http://linux.linuxidc.com/ 用户名与密码: www.linuxidc.com 具体下载目录在 /2016年资料/9月/6日/Ubuntu 16.04安装QQ国际版图文详细教程/ 安装依赖库12sudo apt-get install libgtk2.0-0:i386sudo apt-get inst">
+  <meta name="description" content="ubuntu 下安装bcloud直接去github下载deb包就可以了。然后安装如果报错，获取bdstoken失败，参考1http://bbs.deepin.org/forum.php?mod=viewthread&amp;amp;tid=43445 如果主页内容无法显示，参考Step1:12Step 1: sudo gedit /usr/lib/python3/dist-packages/bcloud/">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2017/04/22/qq/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/04/22/bcloud/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ubuntu16.04 LTS环境下安装QQintl 下载地址下载地址: http://linux.linuxidc.com/ 用户名与密码: www.linuxidc.com 具体下载目录在 /2016年资料/9月/6日/Ubuntu 16.04安装QQ国际版图文详细教程/ 安装依赖库12sudo apt-get install libgtk2.0-0:i386sudo apt-get inst">
-<meta property="og:updated_time" content="2017-04-22T00:35:36.639Z">
+<meta property="og:description" content="ubuntu 下安装bcloud直接去github下载deb包就可以了。然后安装如果报错，获取bdstoken失败，参考1http://bbs.deepin.org/forum.php?mod=viewthread&amp;amp;tid=43445 如果主页内容无法显示，参考Step1:12Step 1: sudo gedit /usr/lib/python3/dist-packages/bcloud/">
+<meta property="og:updated_time" content="2017-04-22T01:12:08.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="ubuntu16.04 LTS环境下安装QQintl 下载地址下载地址: http://linux.linuxidc.com/ 用户名与密码: www.linuxidc.com 具体下载目录在 /2016年资料/9月/6日/Ubuntu 16.04安装QQ国际版图文详细教程/ 安装依赖库12sudo apt-get install libgtk2.0-0:i386sudo apt-get inst">
+<meta name="twitter:description" content="ubuntu 下安装bcloud直接去github下载deb包就可以了。然后安装如果报错，获取bdstoken失败，参考1http://bbs.deepin.org/forum.php?mod=viewthread&amp;amp;tid=43445 如果主页内容无法显示，参考Step1:12Step 1: sudo gedit /usr/lib/python3/dist-packages/bcloud/">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-qq" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-bcloud" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/22/qq/" class="article-date">
-  <time datetime="2017-04-22T00:36:13.730Z" itemprop="datePublished">2017-04-22</time>
+    <a href="/2017/04/22/bcloud/" class="article-date">
+  <time datetime="2017-04-22T01:12:19.192Z" itemprop="datePublished">2017-04-22</time>
 </a>
     
   </div>
@@ -76,17 +76,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ubuntu16.04 LTS环境下安装QQintl</p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>下载地址: <a href="http://linux.linuxidc.com/" target="_blank" rel="external">http://linux.linuxidc.com/</a></p>
-<p>用户名与密码: www.linuxidc.com</p>
-<p>具体下载目录在 /2016年资料/9月/6日/Ubuntu 16.04安装QQ国际版图文详细教程/</p>
-<h2 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libgtk2.0-0:i386</div><div class="line">sudo apt-get install lib32ncurses5</div></pre></td></tr></table></figure>
-<h2 id="解压并安装wineqqintl"><a href="#解压并安装wineqqintl" class="headerlink" title="解压并安装wineqqintl"></a>解压并安装wineqqintl</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tar -vxf wine-qqintl-www.linuxidc.com.tar.xz</div><div class="line">sudo dpkg -i wine-qqintl_0.1.3-2_i386.deb</div><div class="line">sudo dpkg -i ttf-wqy-microhei_0.2.0-beta-2_all.deb</div><div class="line">sudo dpkg -i fonts-wqy-microhei_0.2.0-beta-2_all.deb</div></pre></td></tr></table></figure>
-<h2 id="关闭手机上的设备锁，否则会提示版本过低"><a href="#关闭手机上的设备锁，否则会提示版本过低" class="headerlink" title="关闭手机上的设备锁，否则会提示版本过低"></a>关闭手机上的设备锁，否则会提示版本过低</h2>
+        <h2 id="ubuntu-下安装bcloud"><a href="#ubuntu-下安装bcloud" class="headerlink" title="ubuntu 下安装bcloud"></a>ubuntu 下安装bcloud</h2><p>直接去github下载deb包就可以了。然后安装<br>如果报错，获取bdstoken失败，参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=43445</div></pre></td></tr></table></figure></p>
+<p>如果主页内容无法显示，参考<br>Step1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Step 1:</div></pre></td></tr></table></figure></p>
+<p>sudo gedit /usr/lib/python3/dist-packages/bcloud/auth.py<br>在get_bdstoken函数的if req:前一行添加”cookie.load_list(req.headers.get_all(‘Set-Cookie’))”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* Step 2:</div></pre></td></tr></table></figure></p>
+<p>sudo gedit /usr/lib/python3/dist-packages/bcloud/pcs.py<br>把所有cookie.sub_output()的参数添加上’SCRC’,’STOKEN’<br>例：’Cookie’: cookie.sub_output(‘BAIDUID’, ‘BDUSS’, ‘PANWEB’, ‘cflag’, ‘SCRC’, ‘STOKEN’),<br>只需要修改4个参数的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* Step 3</div></pre></td></tr></table></figure></p>
+<p>sudo rm -rf ~/.config/bcloud/<em><br>sudo rm -rf ~/.cache/bcloud/</em><br>```</p>
+<ul>
+<li>Step 4<br>重新运行Bcloud</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/22/qq/" data-id="cj1soul400003fcuiw5b5czsa" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/04/22/bcloud/" data-id="cj1soul3p0000fcuiwuqu9or6" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -95,7 +97,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/04/21/hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/22/qq/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Nieuwer</strong>
       <div class="article-nav-title">
         
@@ -105,7 +107,7 @@
     </a>
   
   
-    <a href="/2017/04/22/bcloud/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/04/22/wps/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Ouder</strong>
       <div class="article-nav-title"></div>
     </a>

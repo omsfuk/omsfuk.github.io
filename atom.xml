@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-22T00:35:36.639Z</updated>
+  <updated>2017-04-22T03:11:05.833Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/04/22/wps/"/>
+    <id>http://yoursite.com/2017/04/22/wps/</id>
+    <published>2017-04-22T03:11:17.317Z</published>
+    <updated>2017-04-22T03:11:05.833Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="wps"><a href="#wps" class="headerlink" title="wps"></a>wps</h2><p>启动WPS for Linux后，出现提示”系统缺失字体” 。</p>
+<p>出现提示的原因是因为WPS for Linux没有自带windows的字体，只要在Linux系统中加载字体即可。</p>
+<p>具体操作步骤如下：</p>
+<ol>
+<li>下载缺失的字体文件，然后复制到Linux系统中的/usr/share/fonts文件夹中。</li>
+</ol>
+<p>国外下载地址：<code>https://www.dropbox.com/s/lfy4hvq95ilwyw5/wps_symbol_fonts.zip</code></p>
+<p>国内下载地址：’<a href="http://pan.baidu.com/s/1mh0lcbY`" target="_blank" rel="external">http://pan.baidu.com/s/1mh0lcbY`</a></p>
+<p>下载完成后，解压并进入目录中，继续执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cp *.ttf *.TTF /usr/share/fonts</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>执行以下命令,生成字体的索引信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo mkfontscale</div><div class="line">sudo mkfontdir</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行fc-cache命令更新字体缓存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo fc-cache</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启wps即可，字体缺失的提示不再出现。<br>（生成的文件可以删除，貌似。。）</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;wps&quot;&gt;&lt;a href=&quot;#wps&quot; class=&quot;headerlink&quot; title=&quot;wps&quot;&gt;&lt;/a&gt;wps&lt;/h2&gt;&lt;p&gt;启动WPS for Linux后，出现提示”系统缺失字体” 。&lt;/p&gt;
+&lt;p&gt;出现提示的原因是因为WPS for Linux没有自带
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/04/22/bcloud/"/>
+    <id>http://yoursite.com/2017/04/22/bcloud/</id>
+    <published>2017-04-22T01:12:19.192Z</published>
+    <updated>2017-04-22T01:12:08.965Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ubuntu-下安装bcloud"><a href="#ubuntu-下安装bcloud" class="headerlink" title="ubuntu 下安装bcloud"></a>ubuntu 下安装bcloud</h2><p>直接去github下载deb包就可以了。然后安装<br>如果报错，获取bdstoken失败，参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=43445</div></pre></td></tr></table></figure></p>
+<p>如果主页内容无法显示，参考<br>Step1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Step 1:</div></pre></td></tr></table></figure></p>
+<p>sudo gedit /usr/lib/python3/dist-packages/bcloud/auth.py<br>在get_bdstoken函数的if req:前一行添加”cookie.load_list(req.headers.get_all(‘Set-Cookie’))”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* Step 2:</div></pre></td></tr></table></figure></p>
+<p>sudo gedit /usr/lib/python3/dist-packages/bcloud/pcs.py<br>把所有cookie.sub_output()的参数添加上’SCRC’,’STOKEN’<br>例：’Cookie’: cookie.sub_output(‘BAIDUID’, ‘BDUSS’, ‘PANWEB’, ‘cflag’, ‘SCRC’, ‘STOKEN’),<br>只需要修改4个参数的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* Step 3</div></pre></td></tr></table></figure></p>
+<p>sudo rm -rf ~/.config/bcloud/<em><br>sudo rm -rf ~/.cache/bcloud/</em><br>```</p>
+<ul>
+<li>Step 4<br>重新运行Bcloud</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;ubuntu-下安装bcloud&quot;&gt;&lt;a href=&quot;#ubuntu-下安装bcloud&quot; class=&quot;headerlink&quot; title=&quot;ubuntu 下安装bcloud&quot;&gt;&lt;/a&gt;ubuntu 下安装bcloud&lt;/h2&gt;&lt;p&gt;直接去github下载deb
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -108,6 +172,29 @@
     
     
       <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>think in java 学习笔记</title>
+    <link href="http://yoursite.com/2017/04/21/thinkinjava/"/>
+    <id>http://yoursite.com/2017/04/21/thinkinjava/</id>
+    <published>2017-04-21T14:41:30.866Z</published>
+    <updated>2017-04-16T14:04:32.579Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="char与int的转换"><a href="#char与int的转换" class="headerlink" title="char与int的转换"></a>char与int的转换</h1><p>char a = ‘a’ + 1; yes</p>
+<p>char b = ‘a’;<br>char a = b + 1; no</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;char与int的转换&quot;&gt;&lt;a href=&quot;#char与int的转换&quot; class=&quot;headerlink&quot; title=&quot;char与int的转换&quot;&gt;&lt;/a&gt;char与int的转换&lt;/h1&gt;&lt;p&gt;char a = ‘a’ + 1; yes&lt;/p&gt;
+&lt;p&gt;char 
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
   </entry>
   
@@ -254,29 +341,6 @@
     
     
       <category term="mybatis" scheme="http://yoursite.com/tags/mybatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>think in java 学习笔记</title>
-    <link href="http://yoursite.com/2017/04/21/thinkinjava/"/>
-    <id>http://yoursite.com/2017/04/21/thinkinjava/</id>
-    <published>2017-04-21T14:41:30.866Z</published>
-    <updated>2017-04-16T14:04:32.579Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="char与int的转换"><a href="#char与int的转换" class="headerlink" title="char与int的转换"></a>char与int的转换</h1><p>char a = ‘a’ + 1; yes</p>
-<p>char b = ‘a’;<br>char a = b + 1; no</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;char与int的转换&quot;&gt;&lt;a href=&quot;#char与int的转换&quot; class=&quot;headerlink&quot; title=&quot;char与int的转换&quot;&gt;&lt;/a&gt;char与int的转换&lt;/h1&gt;&lt;p&gt;char a = ‘a’ + 1; yes&lt;/p&gt;
-&lt;p&gt;char 
-    
-    </summary>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
   </entry>
   

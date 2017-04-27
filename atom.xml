@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-22T03:34:09.642Z</updated>
+  <updated>2017-04-27T05:59:41.828Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,103 +16,95 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ubuntu初始化&amp;&amp;美化</title>
-    <link href="http://yoursite.com/2017/04/22/ubuntu/"/>
-    <id>http://yoursite.com/2017/04/22/ubuntu/</id>
-    <published>2017-04-22T03:34:09.650Z</published>
-    <updated>2017-04-22T03:34:09.642Z</updated>
+    <title></title>
+    <link href="http://yoursite.com/2017/04/27/nginx-problem/"/>
+    <id>http://yoursite.com/2017/04/27/nginx-problem/</id>
+    <published>2017-04-27T05:59:41.828Z</published>
+    <updated>2017-04-27T05:59:41.828Z</updated>
     
-    <content type="html"><![CDATA[<p>[TOC]</p>
-<h1 id="Ubuntu初始化以及美化"><a href="#Ubuntu初始化以及美化" class="headerlink" title="Ubuntu初始化以及美化"></a>Ubuntu初始化以及美化</h1><h2 id="系统版本"><a href="#系统版本" class="headerlink" title="系统版本"></a>系统版本</h2><ul>
-<li>Ubuntu 16.10<br>可以安装screenfetch来查看系统信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install screenfetch</div><div class="line">screenfetch</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
-<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vim</div></pre></td></tr></table></figure>
-<h2 id="Chorme浏览器"><a href="#Chorme浏览器" class="headerlink" title="Chorme浏览器"></a>Chorme浏览器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取deb安装包</span></div><div class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</div><div class="line"><span class="comment"># 安装</span></div><div class="line">sudo dpkg -i google-chrome-stable_current_amd64.deb</div></pre></td></tr></table></figure>
-<h2 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h2><p>直接去官网下载deb包，安装就好了</p>
-<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mysql-server</div></pre></td></tr></table></figure>
-<h2 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h2><p>去laod博客下载hosts文件，然后敲<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 重启网络管理器</div><div class="line">sudo systemctl restart NetworkManager</div></pre></td></tr></table></figure></p>
-<p>或者关闭网络连接再打开。<br>google访问要加<code>https</code></p>
-<h2 id="bcloud"><a href="#bcloud" class="headerlink" title="bcloud"></a>bcloud</h2><p>直接去github下载deb包就可以了。然后安装</p>
-<p>如果报错，获取bdstoken失败，参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=43445</div></pre></td></tr></table></figure></p>
-<ul>
-<li><p>Step 1:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo gedit /usr/lib/python3/dist-packages/bcloud/auth.py</div><div class="line">在get_bdstoken函数的if req:前一行添加&quot;cookie.load_list(req.headers.get_all(&apos;Set-Cookie&apos;))&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Step 2:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo gedit /usr/lib/python3/dist-packages/bcloud/pcs.py</div><div class="line">把所有cookie.sub_output()的参数添加上&apos;SCRC&apos;,&apos;STOKEN&apos;</div><div class="line">例：&apos;Cookie&apos;: cookie.sub_output(&apos;BAIDUID&apos;, &apos;BDUSS&apos;, &apos;PANWEB&apos;, &apos;cflag&apos;, &apos;SCRC&apos;, &apos;STOKEN&apos;),</div><div class="line">只需要修改4个参数的函数</div></pre></td></tr></table></figure>
-</li>
-<li><p>Step 3</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo rm -rf ~/.config/bcloud/*</div><div class="line">sudo rm -rf ~/.cache/bcloud/*</div></pre></td></tr></table></figure>
-</li>
-<li><p>Step 4<br>重新运行Bcloud</p>
-</li>
-</ul>
-<h2 id="wps"><a href="#wps" class="headerlink" title="wps"></a>wps</h2><ul>
-<li>首先卸载libreoffice<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get -y purge libreoffice*</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>zsh貌似不兼容，需要切换到bash<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/bin/sh</div><div class="line">sudo apt-get -y purge libreoffice*</div></pre></td></tr></table></figure></p>
-<ul>
-<li>安装wps<br>去官网下载wpf for linux，直接安装就好了</li>
-</ul>
-<p>启动WPS for Linux后，出现提示”系统缺失字体” 。</p>
-<p>出现提示的原因是因为WPS for Linux没有自带windows的字体，只要在Linux系统中加载字体即可。</p>
-<p>具体操作步骤如下：</p>
-<ol>
-<li>下载缺失的字体文件，然后复制到Linux系统中的/usr/share/fonts文件夹中。</li>
-</ol>
-<p>国外下载地址：<code>https://www.dropbox.com/s/lfy4hvq95ilwyw5/wps_symbol_fonts.zip</code></p>
-<p>国内下载地址：’<a href="http://pan.baidu.com/s/1mh0lcbY`" target="_blank" rel="external">http://pan.baidu.com/s/1mh0lcbY`</a></p>
-<p>下载完成后，解压并进入目录中，继续执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cp *.ttf *.TTF /usr/share/fonts</div></pre></td></tr></table></figure></p>
-<ol>
-<li><p>执行以下命令,生成字体的索引信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo mkfontscale</div><div class="line">sudo mkfontdir</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行fc-cache命令更新字体缓存。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo fc-cache</div></pre></td></tr></table></figure>
-</li>
-<li><p>重启wps即可，字体缺失的提示不再出现。<br>（生成的文件可以删除，貌似。。）</p>
-</li>
-</ol>
-<h2 id="QQ-intl"><a href="#QQ-intl" class="headerlink" title="QQ intl"></a>QQ intl</h2><h4 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h4><p>下载地址: <a href="http://linux.linuxidc.com/" target="_blank" rel="external">http://linux.linuxidc.com/</a></p>
-<p>用户名与密码: www.linuxidc.com</p>
-<p>具体下载目录在 /2016年资料/9月/6日/Ubuntu 16.04安装QQ国际版图文详细教程/</p>
-<h4 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libgtk2.0-0:i386</div><div class="line">sudo apt-get install lib32ncurses5</div></pre></td></tr></table></figure>
-<h4 id="解压并安装wineqqintl"><a href="#解压并安装wineqqintl" class="headerlink" title="解压并安装wineqqintl"></a>解压并安装wineqqintl</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tar -vxf wine-qqintl-www.linuxidc.com.tar.xz</div><div class="line">sudo dpkg -i wine-qqintl_0.1.3-2_i386.deb</div><div class="line">sudo dpkg -i ttf-wqy-microhei_0.2.0-beta-2_all.deb</div><div class="line">sudo dpkg -i fonts-wqy-microhei_0.2.0-beta-2_all.deb</div></pre></td></tr></table></figure>
-<h4 id="关闭手机上的设备锁，否则会提示版本过低"><a href="#关闭手机上的设备锁，否则会提示版本过低" class="headerlink" title="关闭手机上的设备锁，否则会提示版本过低"></a>关闭手机上的设备锁，否则会提示版本过低</h4><h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 安装zsh</div><div class="line">sudo apt-get install zsh</div><div class="line"># 设为默认登录shell，可以查看/etc/passwd验证是否更改</div><div class="line">chsh -s /bin/zsh</div></pre></td></tr></table></figure>
-<h2 id="Oh-My-ZSH"><a href="#Oh-My-ZSH" class="headerlink" title="Oh My ZSH!"></a>Oh My ZSH!</h2><p>Oh My Zsh是一款社区驱动的命令行工具，正如它的主页上说的，Oh My Zsh 是一种生活方式。它基于zsh命令行，提供了主题配置，插件机制，已经内置的便捷操作。给我们一种全新的方式使用命令行。</p>
-<p>Oh My Zsh这个名字听起来就很有意思，它是基于zsh命令行的一个扩展工具集，提供了丰富的扩展功能。</p>
-<p>Oh My Zsh只是一个对zsh命令行环境的配置包装框架，但它不提供命令行窗口，更不是一个独立的APP。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</div></pre></td></tr></table></figure></p>
-<p>配置主题，可以修改<code>.zshrc</code>的<code>ZSH_THEME</code>来选择主题。具体主题可以查看<code>oh my zsh</code>官网说明。感觉默认的就挺好。</p>
-<p>然后在终端上右键，更改配置文件，来个透明效果</p>
-<h2 id="Unity-Tweak-Tool"><a href="#Unity-Tweak-Tool" class="headerlink" title="Unity Tweak Tool"></a>Unity Tweak Tool</h2><p>网上找的ppa都失效了，直接去软件中心下载就好了。搜索<code>unity-tweak-tool</code>，一个字符也不要错。<br>下载安装。ok</p>
-<h2 id="OSX-Arc"><a href="#OSX-Arc" class="headerlink" title="OSX - Arc"></a>OSX - Arc</h2><p>去Linux公社下载<code>OSX - Arc</code>主题<br>地址<code>http://linux.linuxidc.com/</code>,用户名与密码都是<code>www.linuxidc.com</code><br>具体下载目录在<code>/2017年资料/1月/1日/GTK3主题：OSX-Arc/</code><br>将提取后的文件复制到<code>/usr/share/themes</code></p>
-<p>借助Unity Tweak Tool更换主题为<code>OSX - Arc - darker</code></p>
-<h2 id="Numix图标"><a href="#Numix图标" class="headerlink" title="Numix图标"></a>Numix图标</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:numix/ppa</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install numix-icon-theme</div><div class="line">sudo apt-get install numix-icon-theme-circle # 圆形图标比较美观</div></pre></td></tr></table></figure>
-<h2 id="更改用户文件夹"><a href="#更改用户文件夹" class="headerlink" title="更改用户文件夹"></a>更改用户文件夹</h2><p>我的安装完是中文的，感觉不爽，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">vim .config/user-dirs.dirs </div><div class="line"></div><div class="line"># 改一该就好了</div><div class="line">XDG_DESKTOP_DIR=&quot;$HOME/Desktop&quot;</div><div class="line">XDG_DOWNLOAD_DIR=&quot;$HOME/Downloads&quot;</div><div class="line">XDG_TEMPLATES_DIR=&quot;$HOME/Templates&quot;</div><div class="line">XDG_PUBLICSHARE_DIR=&quot;$HOME/Public&quot;</div><div class="line">XDG_DOCUMENTS_DIR=&quot;$HOME/Documents&quot;</div><div class="line">XDG_MUSIC_DIR=&quot;$HOME/Music&quot;</div><div class="line">XDG_PICTURES_DIR=&quot;$HOME/Pictures&quot;</div><div class="line">XDG_VIDEOS_DIR=&quot;$HOME/Videos&quot;</div></pre></td></tr></table></figure></p>
-<p>然后手动将中文名改为英文的</p>
+    <content type="html"><![CDATA[<h1 id="nginx-tomcat疑似session丢失的情况"><a href="#nginx-tomcat疑似session丢失的情况" class="headerlink" title="nginx + tomcat疑似session丢失的情况"></a>nginx + tomcat疑似session丢失的情况</h1><p>具体情况是，登录不上，每次登录都提示没有找到用户名。<br>网上大部分的解决方案都是针对proxy_pass设置了多个虚拟主机，每个虚拟主机有不同目录导致，如<a href="http://localhost:8080/app1和http://localhost:8080/app2。但是我的只是http://localhost:8080，所以排除这种情况。" target="_blank" rel="external">http://localhost:8080/app1和http://localhost:8080/app2。但是我的只是http://localhost:8080，所以排除这种情况。</a></p>
+<p>怀疑和配置有关，于是在本机上将nginx和tomcat搭建起来，将配置完全拷贝，除了个别目录不一样，其他的连行数都一模一样，，，然并卵，本地是成功的，但是服务器依旧失败。。</p>
+<p>突发奇想，换了个浏览器，mdzz，果然可以了，好吧，，猜测可能是缓存有关，因为我最开始nginx脑残的将动态页面也缓存了，，OK，清理下chrome缓存，搞定，，，</p>
+<p>但是还是有问题，从第一次登录失败后，我一直都是强制刷新啊？怎么会登录不上？猜测可能是浏览器不止缓存页面，还缓存了一些其他东西，例如”cookie”？只是猜想，，</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;Ubuntu初始化以及美化&quot;&gt;&lt;a href=&quot;#Ubuntu初始化以及美化&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu初始化以及美化&quot;&gt;&lt;/a&gt;Ubuntu初始化以及美化&lt;/h1&gt;&lt;h2 id=&quot;系统版本&quot;&gt;&lt;a
+      &lt;h1 id=&quot;nginx-tomcat疑似session丢失的情况&quot;&gt;&lt;a href=&quot;#nginx-tomcat疑似session丢失的情况&quot; class=&quot;headerlink&quot; title=&quot;nginx + tomcat疑似session丢失的情况&quot;&gt;&lt;/a&gt;nginx 
     
     </summary>
     
     
-      <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
+  </entry>
+  
+  <entry>
+    <title>单例模式</title>
+    <link href="http://yoursite.com/2017/04/26/Singleton_Pattern/"/>
+    <id>http://yoursite.com/2017/04/26/Singleton_Pattern/</id>
+    <published>2017-04-26T11:34:22.274Z</published>
+    <updated>2017-04-22T15:53:27.317Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Ensure a class has only one instance,and provide a global point of assess ot it.</div><div class="line">确保某一个类只有一个实例，而且自动实例化并向整个系统提供这个实例</div></pre></td></tr></table></figure>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>减少内存开支</li>
+<li>减少系统的性能开销</li>
+<li>避免对资源的多重占用。例如写文件，避免了对同一个资源文件的同时写操作。</li>
+<li>可以在系统设置全局的访问点，优化和共享资源访问。</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>单例模式一般没有接口，拓展很困难。接口对单例模式是没有任何意义的，它要求“自动实例化“，并且提供单一实例，接口或抽象类是不可能被实例化的，在特殊情况下，单例模式是可以实现接口的，需要在系统开发中根据情况判断。</li>
+<li>对测试不利。在并行开发环境中，如果单例模式没有完成，是不能进行测试的，没有接口也不能使用mock的方法虚拟一个对象。</li>
+<li>与单一职责原则有冲突。一个类应该只实现一个逻辑，而不关心它是否是单例的，是不是要取决于环境，单例模式吧“要单例”和业务逻辑融合在一个类中。</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>要求生成唯一序列号的环境</li>
+<li>在整个项目中需要一个共享访问点或共享数据</li>
+<li>创建一个对象需要消耗的资源过多</li>
+<li>需要定义大量的静态常量和静态方法（如工具类）的环境。</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>注意线程安全问题。懒汉模式和饿汉模式。<br>建议采用饿汉模式，即将静态初始化，而不是当访问的时候再去实例化。</p>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>有上限的多例模式</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h1&gt;&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/2017/04/21/hexo/"/>
-    <id>http://yoursite.com/2017/04/21/hexo/</id>
-    <published>2017-04-21T14:58:12.699Z</published>
-    <updated>2017-04-21T14:58:12.683Z</updated>
+    <link href="http://yoursite.com/2017/04/26/git/"/>
+    <id>http://yoursite.com/2017/04/26/git/</id>
+    <published>2017-04-26T11:34:22.274Z</published>
+    <updated>2017-04-22T08:02:12.427Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>Git是目前世界上最先进的分布式版本控制系统（没有之一）。</p>
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
+<h2 id="版本库"><a href="#版本库" class="headerlink" title="版本库"></a>版本库</h2><p>git init</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;p&gt;Git是目前世界上最先进的分布式版本控制系统（没有之一）。&lt;/p&gt;
+&lt;h2 id=&quot;安装git&quot;&gt;&lt;a href=&quot;#安装git&quot; 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用hexo搭建博客</title>
+    <link href="http://yoursite.com/2017/04/26/hexo/"/>
+    <id>http://yoursite.com/2017/04/26/hexo/</id>
+    <published>2017-04-26T11:34:22.274Z</published>
+    <updated>2017-04-22T03:37:54.189Z</updated>
     
     <content type="html"><![CDATA[<h1 id="基本环境安装"><a href="#基本环境安装" class="headerlink" title="基本环境安装"></a>基本环境安装</h1><h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div><div class="line">git config --global user.name &quot;omsfuk&quot;</div><div class="line">git config --golbal user.email &quot;omsfuk@163.com&quot;</div><div class="line">生成密钥</div><div class="line">ssh-keygen -t rsa -C &quot;omsfuk@163.com&quot;</div><div class="line">将id_rsa.pub文件里的内容设置到github中</div></pre></td></tr></table></figure>
 <h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget  http://nodejs.org/dist/v4.5.0/node-v4.5.0-linux-x64.tar.xz</div><div class="line">tar -vxf node-v4.5.0-linux-x64.tar.xz</div></pre></td></tr></table></figure>
@@ -131,13 +123,39 @@
     </summary>
     
     
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jrebel热部署</title>
+    <link href="http://yoursite.com/2017/04/26/jrebel/"/>
+    <id>http://yoursite.com/2017/04/26/jrebel/</id>
+    <published>2017-04-26T11:34:22.274Z</published>
+    <updated>2017-04-22T03:38:56.937Z</updated>
+    
+    <content type="html"><![CDATA[<p>建议从intellij直接安装插件。</p>
+<p>激活的话由两个服务器地址，<br>idea.qinxi1992.cn/{username}<br>idea.goxz.gq/{username}<br>邮箱随意<br>如果已经离线激活，可通过执行<br>java -jar jrebel.jar -delete-offline<br>来解除离线激活状态</p>
+<p>要在view里打开jrebel pabel，然后选中要监控的项目<br>将update设置为reload resource and classes，</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;建议从intellij直接安装插件。&lt;/p&gt;
+&lt;p&gt;激活的话由两个服务器地址，&lt;br&gt;idea.qinxi1992.cn/{username}&lt;br&gt;idea.goxz.gq/{username}&lt;br&gt;邮箱随意&lt;br&gt;如果已经离线激活，可通过执行&lt;br&gt;java -jar
+    
+    </summary>
+    
+    
+      <category term="jrebel" scheme="http://yoursite.com/tags/jrebel/"/>
+    
   </entry>
   
   <entry>
     <title>mybatis总结</title>
-    <link href="http://yoursite.com/2017/04/21/mybatis/"/>
-    <id>http://yoursite.com/2017/04/21/mybatis/</id>
-    <published>2017-04-21T14:41:30.866Z</published>
+    <link href="http://yoursite.com/2017/04/26/mybatis/"/>
+    <id>http://yoursite.com/2017/04/26/mybatis/</id>
+    <published>2017-04-26T11:34:22.274Z</published>
     <updated>2017-04-17T01:39:45.660Z</updated>
     
     <content type="html"><![CDATA[<p>[TOC]</p>
@@ -281,9 +299,9 @@
   
   <entry>
     <title>think in java 学习笔记</title>
-    <link href="http://yoursite.com/2017/04/21/thinkinjava/"/>
-    <id>http://yoursite.com/2017/04/21/thinkinjava/</id>
-    <published>2017-04-21T14:41:30.866Z</published>
+    <link href="http://yoursite.com/2017/04/26/thinkinjava/"/>
+    <id>http://yoursite.com/2017/04/26/thinkinjava/</id>
+    <published>2017-04-26T11:34:22.274Z</published>
     <updated>2017-04-16T14:04:32.579Z</updated>
     
     <content type="html"><![CDATA[<h1 id="char与int的转换"><a href="#char与int的转换" class="headerlink" title="char与int的转换"></a>char与int的转换</h1><p>char a = ‘a’ + 1; yes</p>
@@ -303,53 +321,94 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/04/21/jrebel/"/>
-    <id>http://yoursite.com/2017/04/21/jrebel/</id>
-    <published>2017-04-21T14:41:30.858Z</published>
-    <updated>2017-04-17T09:47:33.569Z</updated>
+    <title>ubuntu初始化&amp;&amp;美化</title>
+    <link href="http://yoursite.com/2017/04/26/ubuntu/"/>
+    <id>http://yoursite.com/2017/04/26/ubuntu/</id>
+    <published>2017-04-26T11:34:22.274Z</published>
+    <updated>2017-04-22T03:34:09.642Z</updated>
     
-    <content type="html"><![CDATA[<p>建议从intellij直接安装插件。</p>
-<p>激活的话由两个服务器地址，<br>idea.qinxi1992.cn/{username}<br>idea.goxz.gq/{username}<br>邮箱随意<br>如果已经离线激活，可通过执行<br>java -jar jrebel.jar -delete-offline<br>来解除离线激活状态</p>
-<p>要在view里打开jrebel pabel，然后选中要监控的项目<br>将update设置为reload resource and classes，</p>
+    <content type="html"><![CDATA[<p>[TOC]</p>
+<h1 id="Ubuntu初始化以及美化"><a href="#Ubuntu初始化以及美化" class="headerlink" title="Ubuntu初始化以及美化"></a>Ubuntu初始化以及美化</h1><h2 id="系统版本"><a href="#系统版本" class="headerlink" title="系统版本"></a>系统版本</h2><ul>
+<li>Ubuntu 16.10<br>可以安装screenfetch来查看系统信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install screenfetch</div><div class="line">screenfetch</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vim</div></pre></td></tr></table></figure>
+<h2 id="Chorme浏览器"><a href="#Chorme浏览器" class="headerlink" title="Chorme浏览器"></a>Chorme浏览器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取deb安装包</span></div><div class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</div><div class="line"><span class="comment"># 安装</span></div><div class="line">sudo dpkg -i google-chrome-stable_current_amd64.deb</div></pre></td></tr></table></figure>
+<h2 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h2><p>直接去官网下载deb包，安装就好了</p>
+<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mysql-server</div></pre></td></tr></table></figure>
+<h2 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h2><p>去laod博客下载hosts文件，然后敲<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 重启网络管理器</div><div class="line">sudo systemctl restart NetworkManager</div></pre></td></tr></table></figure></p>
+<p>或者关闭网络连接再打开。<br>google访问要加<code>https</code></p>
+<h2 id="bcloud"><a href="#bcloud" class="headerlink" title="bcloud"></a>bcloud</h2><p>直接去github下载deb包就可以了。然后安装</p>
+<p>如果报错，获取bdstoken失败，参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=43445</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>Step 1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo gedit /usr/lib/python3/dist-packages/bcloud/auth.py</div><div class="line">在get_bdstoken函数的if req:前一行添加&quot;cookie.load_list(req.headers.get_all(&apos;Set-Cookie&apos;))&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Step 2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo gedit /usr/lib/python3/dist-packages/bcloud/pcs.py</div><div class="line">把所有cookie.sub_output()的参数添加上&apos;SCRC&apos;,&apos;STOKEN&apos;</div><div class="line">例：&apos;Cookie&apos;: cookie.sub_output(&apos;BAIDUID&apos;, &apos;BDUSS&apos;, &apos;PANWEB&apos;, &apos;cflag&apos;, &apos;SCRC&apos;, &apos;STOKEN&apos;),</div><div class="line">只需要修改4个参数的函数</div></pre></td></tr></table></figure>
+</li>
+<li><p>Step 3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo rm -rf ~/.config/bcloud/*</div><div class="line">sudo rm -rf ~/.cache/bcloud/*</div></pre></td></tr></table></figure>
+</li>
+<li><p>Step 4<br>重新运行Bcloud</p>
+</li>
+</ul>
+<h2 id="wps"><a href="#wps" class="headerlink" title="wps"></a>wps</h2><ul>
+<li>首先卸载libreoffice<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get -y purge libreoffice*</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>zsh貌似不兼容，需要切换到bash<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/bin/sh</div><div class="line">sudo apt-get -y purge libreoffice*</div></pre></td></tr></table></figure></p>
+<ul>
+<li>安装wps<br>去官网下载wpf for linux，直接安装就好了</li>
+</ul>
+<p>启动WPS for Linux后，出现提示”系统缺失字体” 。</p>
+<p>出现提示的原因是因为WPS for Linux没有自带windows的字体，只要在Linux系统中加载字体即可。</p>
+<p>具体操作步骤如下：</p>
+<ol>
+<li>下载缺失的字体文件，然后复制到Linux系统中的/usr/share/fonts文件夹中。</li>
+</ol>
+<p>国外下载地址：<code>https://www.dropbox.com/s/lfy4hvq95ilwyw5/wps_symbol_fonts.zip</code></p>
+<p>国内下载地址：’<a href="http://pan.baidu.com/s/1mh0lcbY`" target="_blank" rel="external">http://pan.baidu.com/s/1mh0lcbY`</a></p>
+<p>下载完成后，解压并进入目录中，继续执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cp *.ttf *.TTF /usr/share/fonts</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>执行以下命令,生成字体的索引信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo mkfontscale</div><div class="line">sudo mkfontdir</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行fc-cache命令更新字体缓存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo fc-cache</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启wps即可，字体缺失的提示不再出现。<br>（生成的文件可以删除，貌似。。）</p>
+</li>
+</ol>
+<h2 id="QQ-intl"><a href="#QQ-intl" class="headerlink" title="QQ intl"></a>QQ intl</h2><h4 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h4><p>下载地址: <a href="http://linux.linuxidc.com/" target="_blank" rel="external">http://linux.linuxidc.com/</a></p>
+<p>用户名与密码: www.linuxidc.com</p>
+<p>具体下载目录在 /2016年资料/9月/6日/Ubuntu 16.04安装QQ国际版图文详细教程/</p>
+<h4 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libgtk2.0-0:i386</div><div class="line">sudo apt-get install lib32ncurses5</div></pre></td></tr></table></figure>
+<h4 id="解压并安装wineqqintl"><a href="#解压并安装wineqqintl" class="headerlink" title="解压并安装wineqqintl"></a>解压并安装wineqqintl</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tar -vxf wine-qqintl-www.linuxidc.com.tar.xz</div><div class="line">sudo dpkg -i wine-qqintl_0.1.3-2_i386.deb</div><div class="line">sudo dpkg -i ttf-wqy-microhei_0.2.0-beta-2_all.deb</div><div class="line">sudo dpkg -i fonts-wqy-microhei_0.2.0-beta-2_all.deb</div></pre></td></tr></table></figure>
+<h4 id="关闭手机上的设备锁，否则会提示版本过低"><a href="#关闭手机上的设备锁，否则会提示版本过低" class="headerlink" title="关闭手机上的设备锁，否则会提示版本过低"></a>关闭手机上的设备锁，否则会提示版本过低</h4><h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 安装zsh</div><div class="line">sudo apt-get install zsh</div><div class="line"># 设为默认登录shell，可以查看/etc/passwd验证是否更改</div><div class="line">chsh -s /bin/zsh</div></pre></td></tr></table></figure>
+<h2 id="Oh-My-ZSH"><a href="#Oh-My-ZSH" class="headerlink" title="Oh My ZSH!"></a>Oh My ZSH!</h2><p>Oh My Zsh是一款社区驱动的命令行工具，正如它的主页上说的，Oh My Zsh 是一种生活方式。它基于zsh命令行，提供了主题配置，插件机制，已经内置的便捷操作。给我们一种全新的方式使用命令行。</p>
+<p>Oh My Zsh这个名字听起来就很有意思，它是基于zsh命令行的一个扩展工具集，提供了丰富的扩展功能。</p>
+<p>Oh My Zsh只是一个对zsh命令行环境的配置包装框架，但它不提供命令行窗口，更不是一个独立的APP。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</div></pre></td></tr></table></figure></p>
+<p>配置主题，可以修改<code>.zshrc</code>的<code>ZSH_THEME</code>来选择主题。具体主题可以查看<code>oh my zsh</code>官网说明。感觉默认的就挺好。</p>
+<p>然后在终端上右键，更改配置文件，来个透明效果</p>
+<h2 id="Unity-Tweak-Tool"><a href="#Unity-Tweak-Tool" class="headerlink" title="Unity Tweak Tool"></a>Unity Tweak Tool</h2><p>网上找的ppa都失效了，直接去软件中心下载就好了。搜索<code>unity-tweak-tool</code>，一个字符也不要错。<br>下载安装。ok</p>
+<h2 id="OSX-Arc"><a href="#OSX-Arc" class="headerlink" title="OSX - Arc"></a>OSX - Arc</h2><p>去Linux公社下载<code>OSX - Arc</code>主题<br>地址<code>http://linux.linuxidc.com/</code>,用户名与密码都是<code>www.linuxidc.com</code><br>具体下载目录在<code>/2017年资料/1月/1日/GTK3主题：OSX-Arc/</code><br>将提取后的文件复制到<code>/usr/share/themes</code></p>
+<p>借助Unity Tweak Tool更换主题为<code>OSX - Arc - darker</code></p>
+<h2 id="Numix图标"><a href="#Numix图标" class="headerlink" title="Numix图标"></a>Numix图标</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:numix/ppa</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install numix-icon-theme</div><div class="line">sudo apt-get install numix-icon-theme-circle # 圆形图标比较美观</div></pre></td></tr></table></figure>
+<h2 id="更改用户文件夹"><a href="#更改用户文件夹" class="headerlink" title="更改用户文件夹"></a>更改用户文件夹</h2><p>我的安装完是中文的，感觉不爽，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">vim .config/user-dirs.dirs </div><div class="line"></div><div class="line"># 改一该就好了</div><div class="line">XDG_DESKTOP_DIR=&quot;$HOME/Desktop&quot;</div><div class="line">XDG_DOWNLOAD_DIR=&quot;$HOME/Downloads&quot;</div><div class="line">XDG_TEMPLATES_DIR=&quot;$HOME/Templates&quot;</div><div class="line">XDG_PUBLICSHARE_DIR=&quot;$HOME/Public&quot;</div><div class="line">XDG_DOCUMENTS_DIR=&quot;$HOME/Documents&quot;</div><div class="line">XDG_MUSIC_DIR=&quot;$HOME/Music&quot;</div><div class="line">XDG_PICTURES_DIR=&quot;$HOME/Pictures&quot;</div><div class="line">XDG_VIDEOS_DIR=&quot;$HOME/Videos&quot;</div></pre></td></tr></table></figure></p>
+<p>然后手动将中文名改为英文的</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;建议从intellij直接安装插件。&lt;/p&gt;
-&lt;p&gt;激活的话由两个服务器地址，&lt;br&gt;idea.qinxi1992.cn/{username}&lt;br&gt;idea.goxz.gq/{username}&lt;br&gt;邮箱随意&lt;br&gt;如果已经离线激活，可通过执行&lt;br&gt;java -jar
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;Ubuntu初始化以及美化&quot;&gt;&lt;a href=&quot;#Ubuntu初始化以及美化&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu初始化以及美化&quot;&gt;&lt;/a&gt;Ubuntu初始化以及美化&lt;/h1&gt;&lt;h2 id=&quot;系统版本&quot;&gt;&lt;a
     
     </summary>
     
     
-  </entry>
-  
-  <entry>
-    <title>使用hexo搭建博客</title>
-    <link href="http://yoursite.com/2017/04/16/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2017/04/16/使用hexo搭建博客/</id>
-    <published>2017-04-16T13:07:53.000Z</published>
-    <updated>2017-04-16T13:18:15.588Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div><div class="line">git config --global user.name &quot;omsfuk&quot;</div><div class="line">git config --golbal user.email &quot;omsfuk@163.com&quot;</div><div class="line">生成密钥</div><div class="line">ssh-keygen -t rsa -C &quot;omsfuk@163.com&quot;</div><div class="line">将id_rsa.pub文件里的内容设置到github中</div></pre></td></tr></table></figure>
-<h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget  http://nodejs.org/dist/v4.5.0/node-v4.5.0-linux-x64.tar.xz</div><div class="line">tar -vxf node-v4.5.0-linux-x64.tar.xz</div></pre></td></tr></table></figure>
-<p>然后将文件复制过去<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo cp -r bin/* /usr/local/bin/</div><div class="line">sudo cp -r lib/* /usr/local/lib/</div><div class="line">sudo cp -r include/* /usr/local/include/</div></pre></td></tr></table></figure></p>
-<p>查看node版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
-<h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install npm</div></pre></td></tr></table></figure>
-<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
-<h1 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo new [layout] &lt;title&gt;</div><div class="line">生成的文件会在source/_post/目录下，直接编辑就好</div><div class="line">hexo clean 清理缓存，当经常更换主题或发表文章时使用</div><div class="line">hexo g 生成静态网页</div><div class="line">hexo d 部署</div><div class="line">hexo s 启动服务器</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;git&quot;&gt;&lt;a href=&quot;#git&quot; class=&quot;headerlink&quot; title=&quot;git&quot;&gt;&lt;/a&gt;git&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;d
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+      <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
     
   </entry>
   

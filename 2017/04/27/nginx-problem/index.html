@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: java | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="nginx + tomcat疑似session丢失的情况具体情况是，登录不上，每次登录都提示没有找到用户名。网上大部分的解决方案都是针对proxy_pass设置了多个虚拟主机，每个虚拟主机有不同目录导致，如http://localhost:8080/app1和http://localhost:8080/app2。但是我的只是http://localhost:8080，所以排除这种情况。 怀疑和配置">
+<meta name="keywords">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/java/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/04/27/nginx-problem/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="nginx + tomcat疑似session丢失的情况具体情况是，登录不上，每次登录都提示没有找到用户名。网上大部分的解决方案都是针对proxy_pass设置了多个虚拟主机，每个虚拟主机有不同目录导致，如http://localhost:8080/app1和http://localhost:8080/app2。但是我的只是http://localhost:8080，所以排除这种情况。 怀疑和配置">
+<meta property="og:updated_time" content="2017-04-27T05:59:41.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="nginx + tomcat疑似session丢失的情况具体情况是，登录不上，每次登录都提示没有找到用户名。网上大部分的解决方案都是针对proxy_pass设置了多个虚拟主机，每个虚拟主机有不同目录导致，如http://localhost:8080/app1和http://localhost:8080/app2。但是我的只是http://localhost:8080，所以排除这种情况。 怀疑和配置">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,39 +64,49 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/26/thinkinjava/" class="archive-article-date">
-  <time datetime="2017-04-26T11:34:22.274Z" itemprop="datePublished">Apr 26</time>
+        <section id="main"><article id="post-nginx-problem" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/27/nginx-problem/" class="article-date">
+  <time datetime="2017-04-27T05:59:41.828Z" itemprop="datePublished">2017-04-27</time>
 </a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/26/thinkinjava/">think in java 学习笔记</a>
-    </h1>
-  
-
-    </header>
+    
   </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="nginx-tomcat疑似session丢失的情况"><a href="#nginx-tomcat疑似session丢失的情况" class="headerlink" title="nginx + tomcat疑似session丢失的情况"></a>nginx + tomcat疑似session丢失的情况</h1><p>具体情况是，登录不上，每次登录都提示没有找到用户名。<br>网上大部分的解决方案都是针对proxy_pass设置了多个虚拟主机，每个虚拟主机有不同目录导致，如<a href="http://localhost:8080/app1和http://localhost:8080/app2。但是我的只是http://localhost:8080，所以排除这种情况。" target="_blank" rel="external">http://localhost:8080/app1和http://localhost:8080/app2。但是我的只是http://localhost:8080，所以排除这种情况。</a></p>
+<p>怀疑和配置有关，于是在本机上将nginx和tomcat搭建起来，将配置完全拷贝，除了个别目录不一样，其他的连行数都一模一样，，，然并卵，本地是成功的，但是服务器依旧失败。。</p>
+<p>突发奇想，换了个浏览器，mdzz，果然可以了，好吧，，猜测可能是缓存有关，因为我最开始nginx脑残的将动态页面也缓存了，，OK，清理下chrome缓存，搞定，，，</p>
+<p>但是还是有问题，从第一次登录失败后，我一直都是强制刷新啊？怎么会登录不上？猜测可能是浏览器不止缓存页面，还缓存了一些其他东西，例如”cookie”？只是猜想，，</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/27/nginx-problem/" data-id="cj2002rzq0009rjuiagn0ln77" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/26/ubuntu/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ubuntu初始化&amp;&amp;美化
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         

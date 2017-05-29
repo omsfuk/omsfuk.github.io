@@ -18,7 +18,7 @@ tags: maven
             <name>aliyun maven</name>
             <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
         </mirror>
-    
+
         <!-- 中央仓库1 -->
         <mirror>
             <id>repo1</id>
@@ -26,7 +26,7 @@ tags: maven
             <name>Human Readable Name for this Mirror.</name>
             <url>http://repo1.maven.org/maven2/</url>
         </mirror>
-    
+
         <!-- 中央仓库2 -->
         <mirror>
            <id>repo2</id>
@@ -34,10 +34,16 @@ tags: maven
            <name>Human Readable Name for this Mirror.</name>
            <url>http://repo2.maven.org/maven2/</url>
         </mirror>     
-    </mirrors> 
+    </mirrors>
 </settings>
 ```
 
 ## Intellij创建Maven项目慢
 创建项目时，在`Properties`中添加一个参数`archetypeCatalog=internal`。
 `archetypeCatalog`表示插件使用的archetype元数据，不加这个参数时默认为`remote`，`local`，即中央仓库archetype元数据，由于中央仓库的archetype太多了，所以导致很慢，指定internal来表示仅使用内部元数据。
+当然，也可以直接换个更快的源
+
+## Maven发布到本地仓库
+```
+mvn install:install-file -Dfile=jar包的位置 -DgroupId=上面的groupId -DartifactId=上面的artifactId -Dversion=上面的version -Dpackaging=jar
+```

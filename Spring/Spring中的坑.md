@@ -2,4 +2,5 @@
 与MyBatis集成时，会用到MapperScannerConfigurer这一个Bean，此类的sqlSessionFactory已被弃用，
 初始化时要采用sqlSessionFactoryBeanName，否则可能回出现无法解析占位符的情况。
 
-# 
+# RestController
+使用RestController时，如果配置了静态资源，则需要显式声明解析器
